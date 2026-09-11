@@ -22,10 +22,10 @@ export function FinalCTA() {
           Appeler le salon
         </a>
         <Link
-          href="/contact"
+          href="/salon"
           className="inline-block rounded-sm border border-paper/45 px-10 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
         >
-          Contact
+          Le salon
         </Link>
       </div>
     </section>

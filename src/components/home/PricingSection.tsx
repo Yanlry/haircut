@@ -13,7 +13,7 @@ export function PricingSection() {
             Tarifs
           </p>
           <h2 className="mt-4 font-display text-4xl tracking-wide text-paper sm:text-5xl">
-            Des prix simples, une coupe propre.
+            Des prix simples.
           </h2>
           <div className="mt-5 h-[3px] w-16 barber-stripe" />
           <p className="mt-8 max-w-md text-base leading-relaxed text-paper/72 sm:text-lg">

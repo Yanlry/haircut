@@ -12,8 +12,8 @@ export function AboutSection() {
         <div className="grid grid-cols-[0.82fr_1fr] gap-4 sm:gap-5">
           <div className="relative min-h-96 overflow-hidden">
             <Image
-              src={salonImages.exterior}
-              alt="Extérieur du salon Haircut à Lille"
+              src={salonImages.interior}
+              alt="Intérieur du salon Haircut à Lille"
               fill
               sizes="(min-width: 1024px) 36vw, 45vw"
               className="object-cover"

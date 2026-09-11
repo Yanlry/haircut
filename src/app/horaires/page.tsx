@@ -63,7 +63,7 @@ export default function HorairesPage() {
                   Appeler le salon
                 </a>
                 <Link
-                  href="/contact"
+                  href="/salon"
                   className="rounded-sm border border-paper/50 px-8 py-3 text-center text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
                 >
                   Notre adresse

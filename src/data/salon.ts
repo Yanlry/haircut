@@ -97,7 +97,6 @@ export const priceRange = (() => {
 export const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/tarifs", label: "Tarifs" },
-  { href: "/salon", label: "Le salon" },
   { href: "/horaires", label: "Horaires" },
-  { href: "/contact", label: "Notre adresse" },
+  { href: "/salon", label: "Le salon" },
 ] as const;

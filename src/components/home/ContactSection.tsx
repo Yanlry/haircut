@@ -64,10 +64,10 @@ export function ContactSection() {
               Itinéraire
             </a>
             <Link
-              href="/contact"
+              href="/salon"
               className="rounded-sm border border-white/15 px-8 py-3 text-center text-sm tracking-[0.15em] text-paper/85 uppercase transition-colors hover:border-paper hover:text-paper"
             >
-              Contact
+              Le salon
             </Link>
           </div>
         </div>
