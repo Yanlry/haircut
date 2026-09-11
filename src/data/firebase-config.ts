@@ -13,3 +13,4 @@ export const emailjsConfig = {
   statusTemplateId: "template_t5c0bbm",
   publicKey: "YVSFbRXh7DiEFzkQt",
 } as const;
+  
