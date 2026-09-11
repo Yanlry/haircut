@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:github": "NEXT_PUBLIC_BASE_PATH=/haircut NEXT_PUBLIC_SITE_URL=https://yanlry.github.io/haircut next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { salon, siteUrl } from "@/data/salon";
@@ -61,12 +62,12 @@ export default function HorairesPage() {
                 >
                   Appeler le salon
                 </a>
-                <a
+                <Link
                   href="/contact"
                   className="rounded-sm border border-paper/50 px-8 py-3 text-center text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
                 >
                   Notre adresse
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,8 @@
+import { assetPath, siteAssetUrl, siteUrl } from "@/lib/site-paths";
+
 const phoneDisplay = "06 52 62 14 06";
 const phoneE164 = "+33652621406";
+const siteImagePath = "/images/salon/salon-exterieur.png";
 
 export const salon = {
   name: "Haircut",
@@ -39,39 +42,39 @@ export const salonHighlights = [
 ] as const;
 
 export const salonImages = {
-  facade: "/images/salon/salon-exterieur.png",
-  interior: "/images/salon/salon.png",
-  exterior: "/images/salon/salon-exterieur.png",
-  logo: "/images/HAIRCUT.png",
+  facade: assetPath("/images/salon/salon-exterieur.png"),
+  interior: assetPath("/images/salon/salon.png"),
+  exterior: assetPath("/images/salon/salon-exterieur.png"),
+  logo: assetPath("/images/HAIRCUT.png"),
 } as const;
 
 export const clientPhotos = [
   {
-    src: "/images/salon/clients/2cb72a25-647a-4e55-888e-cea22e120a77.png",
+    src: assetPath("/images/salon/clients/2cb72a25-647a-4e55-888e-cea22e120a77.png"),
     alt: "Coupe homme avec dégradé net réalisée chez Haircut Lille",
   },
   {
-    src: "/images/salon/clients/310be967-5365-44a1-a366-30199c9ad896.png",
+    src: assetPath("/images/salon/clients/310be967-5365-44a1-a366-30199c9ad896.png"),
     alt: "Coupe texturée réalisée dans le salon Haircut",
   },
   {
-    src: "/images/salon/clients/3f42de26-804d-4169-af57-5944998ffd3b.png",
+    src: assetPath("/images/salon/clients/3f42de26-804d-4169-af57-5944998ffd3b.png"),
     alt: "Finition de coupe homme au salon Haircut Lille",
   },
   {
-    src: "/images/salon/clients/5831d1ef-e974-4e2e-b54f-6c7ee8d79c1b.png",
+    src: assetPath("/images/salon/clients/5831d1ef-e974-4e2e-b54f-6c7ee8d79c1b.png"),
     alt: "Dégradé homme précis réalisé chez Haircut",
   },
   {
-    src: "/images/salon/clients/5e9e87b4-493e-41fc-9b59-33c85dd531c2.png",
+    src: assetPath("/images/salon/clients/5e9e87b4-493e-41fc-9b59-33c85dd531c2.png"),
     alt: "Client installé pour une coupe dans le salon Haircut",
   },
   {
-    src: "/images/salon/clients/9391e830-f39c-481a-ad97-a1537b3d2b15.png",
+    src: assetPath("/images/salon/clients/9391e830-f39c-481a-ad97-a1537b3d2b15.png"),
     alt: "Coupe courte homme avec contours travaillés",
   },
   {
-    src: "/images/salon/clients/f80e0656-144b-4603-9ac1-e2c630e58eff.png",
+    src: assetPath("/images/salon/clients/f80e0656-144b-4603-9ac1-e2c630e58eff.png"),
     alt: "Finition client après passage au salon Haircut",
   },
 ] as const;
@@ -82,7 +85,9 @@ export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encode
   addressLine
 )}`;
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+export { siteUrl };
+
+export const siteImageUrl = siteAssetUrl(siteImagePath);
 
 export const priceRange = (() => {
   const prices = salon.pricing.map((item) => item.price);

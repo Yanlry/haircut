@@ -1,6 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Bebas_Neue } from "next/font/google";
-import { salon, addressLine, siteUrl, priceRange } from "@/data/salon";
+import {
+  salon,
+  addressLine,
+  siteUrl,
+  priceRange,
+  siteImageUrl,
+} from "@/data/salon";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/haircut-video-poster.webp",
+        url: siteImageUrl,
         width: 1920,
         height: 1080,
         alt: "Haircut - Coiffeur Barbier à Lille",
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/haircut-video-poster.webp"],
+    images: [siteImageUrl],
   },
 };
 
@@ -62,7 +68,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   name: salon.name,
-  image: `${siteUrl}/images/haircut-video-poster.webp`,
+  image: siteImageUrl,
   telephone: salon.phone.e164,
   priceRange,
   address: {

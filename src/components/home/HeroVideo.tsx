@@ -4,8 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { salon, addressLine } from "@/data/salon";
+import { assetPath } from "@/lib/site-paths";
 
 const TIMED_IMAGE_START_SECONDS = 16.2;
+const entryImage = assetPath("/images/entrer-sur-site.png");
+const logoImage = assetPath("/images/HAIRCUT.png");
+const salonVideo = assetPath("/video.mp4");
+const videoPoster = assetPath("/images/salon/salon-exterieur.png");
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -142,8 +147,8 @@ export function HeroVideo() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        src="/video.mp4"
-        poster="/images/haircut-video-poster.webp"
+        src={salonVideo}
+        poster={videoPoster}
         muted={isMuted}
         loop
         playsInline
@@ -157,8 +162,8 @@ export function HeroVideo() {
         <div className="fixed inset-0 z-[80] overflow-hidden bg-ink px-6 text-center">
           <div
             aria-hidden="true"
-           className="absolute inset-0 bg-cover  bg-[position:49%_59%] opacity-70 md:bg-center"
-            style={{ backgroundImage: "url('/images/entrer-sur-site.png')" }}
+            className="absolute inset-0 bg-cover bg-[position:49%_59%] opacity-70 md:bg-center"
+            style={{ backgroundImage: `url('${entryImage}')` }}
           />
           <div aria-hidden="true" className="absolute inset-0 bg-black/55" />
           <div className="relative z-10 flex min-h-svh flex-col items-center justify-center">
@@ -180,7 +185,7 @@ export function HeroVideo() {
       {showTimedImage && (
         <div className="pointer-events-none absolute inset-0 z-10 flex -translate-y-24 items-center justify-center px-6">
           <Image
-            src="/images/HAIRCUT.png"
+            src={logoImage}
             alt=""
             width={1672}
             height={941}
