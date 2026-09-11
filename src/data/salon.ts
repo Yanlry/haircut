@@ -50,8 +50,8 @@ export const salonImages = {
 
 export const clientPhotos = [
   {
-    src: assetPath("/images/salon/clients/2cb72a25-647a-4e55-888e-cea22e120a77.png"),
-    alt: "Coupe homme avec dégradé net réalisée chez Haircut Lille",
+    src: assetPath("/images/salon/clients/9391e830-f39c-481a-ad97-a1537b3d2b15.png"),
+    alt: "Coupe courte homme avec contours travaillés",
   },
   {
     src: assetPath("/images/salon/clients/310be967-5365-44a1-a366-30199c9ad896.png"),
@@ -70,8 +70,8 @@ export const clientPhotos = [
     alt: "Client installé pour une coupe dans le salon Haircut",
   },
   {
-    src: assetPath("/images/salon/clients/9391e830-f39c-481a-ad97-a1537b3d2b15.png"),
-    alt: "Coupe courte homme avec contours travaillés",
+    src: assetPath("/images/salon/clients/2cb72a25-647a-4e55-888e-cea22e120a77.png"),
+    alt: "Coupe homme avec dégradé net réalisée chez Haircut Lille",
   },
   {
     src: assetPath("/images/salon/clients/f80e0656-144b-4603-9ac1-e2c630e58eff.png"),

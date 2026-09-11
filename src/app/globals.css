@@ -44,6 +44,14 @@ body {
   );
 }
 
+.slot-hatched {
+  background: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--color-barber-red) 45%, transparent) 0 4px,
+    transparent 4px 10px
+  );
+}
+
 .barber-text {
   background:
     repeating-linear-gradient(

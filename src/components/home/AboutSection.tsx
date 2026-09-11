@@ -15,17 +15,19 @@ export function AboutSection() {
               src={salonImages.interior}
               alt="Intérieur du salon Haircut à Lille"
               fill
+              priority
               sizes="(min-width: 1024px) 36vw, 45vw"
               className="object-cover"
             />
           </div>
           <div className="grid gap-4 sm:gap-5">
-            {clientPhotos.slice(0, 2).map((photo) => (
+            {clientPhotos.slice(0, 2).map((photo, index) => (
               <div key={photo.src} className="relative min-h-44 overflow-hidden">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
+                  priority={index === 0}
                   sizes="(min-width: 1024px) 36vw, 45vw"
                   className="object-cover"
                 />

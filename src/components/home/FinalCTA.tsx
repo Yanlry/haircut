@@ -15,9 +15,15 @@ export function FinalCTA() {
       </p>
 
       <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <Link
+          href="/reservation"
+          className="inline-block rounded-sm bg-barber-red px-10 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:bg-barber-red/85"
+        >
+          Réserver
+        </Link>
         <a
           href={salon.phone.href}
-          className="inline-block rounded-sm bg-barber-red px-10 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:bg-barber-red/85"
+          className="inline-block rounded-sm border border-paper/45 px-10 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
         >
           Appeler le salon
         </a>
