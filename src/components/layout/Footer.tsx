@@ -28,6 +28,28 @@ export function Footer() {
             {salon.phone.display}
           </a>
         </p>
+        <nav aria-label="Informations légales">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-paper/50">
+            <li>
+              <Link href="/mentions-legales" className="hover:text-barber-red">
+                Mentions légales
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/politique-de-confidentialite"
+                className="hover:text-barber-red"
+              >
+                Politique de confidentialité
+              </Link>
+            </li>
+            <li>
+              <Link href="/cgv" className="hover:text-barber-red">
+                Conditions de réservation
+              </Link>
+            </li>
+          </ul>
+        </nav>
         <p className="mt-4 text-xs text-paper/40">
           © {year} {salon.name}
         </p>

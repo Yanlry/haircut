@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const CONSENT_KEY = "haircut-cookie-consent";
@@ -31,7 +32,15 @@ export function CookieConsent() {
         <p className="text-sm text-paper/80">
           Ce site utilise des cookies pour assurer son bon fonctionnement et,
           si vous l&apos;acceptez, mesurer sa fréquentation. Vous pouvez
-          accepter ou refuser ces cookies à tout moment.
+          accepter ou refuser ces cookies à tout moment. Pour en savoir
+          plus, consultez notre{" "}
+          <Link
+            href="/politique-de-confidentialite"
+            className="underline hover:text-barber-red"
+          >
+            politique de confidentialité
+          </Link>
+          .
         </p>
         <div className="flex shrink-0 gap-3">
           <button
