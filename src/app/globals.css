@@ -56,12 +56,12 @@ body {
   background:
     repeating-linear-gradient(
       135deg,
-      var(--color-barber-blue) 0 8px,
-      var(--color-barber-blue) 8px 16px,
+      var(--color-barber-red) 0 8px,
+      var(--color-barber-red) 8px 16px,
       var(--color-paper) 16px 24px,
       var(--color-paper) 24px 32px,
-      var(--color-barber-red) 32px 40px,
-      var(--color-barber-red) 40px 48px
+      var(--color-barber-blue) 32px 40px,
+      var(--color-barber-blue) 40px 48px
     );
   color: transparent;
   -webkit-background-clip: text;

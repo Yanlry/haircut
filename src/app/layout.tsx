@@ -7,6 +7,7 @@ import {
   priceRange,
   siteImageUrl,
 } from "@/data/salon";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
