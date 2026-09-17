@@ -28,10 +28,7 @@ export default function TarifsPage() {
                 Les prestations du salon.
               </h1>
               <div className="mt-5 h-[3px] w-16 barber-stripe" />
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-paper/74 sm:text-lg">
-                Une grille simple pour choisir rapidement votre prestation :
-                coupe, barbe, enfant ou formule complète.
-              </p>
+            
             </div>
 
             <div className="relative aspect-[16/10] overflow-hidden">

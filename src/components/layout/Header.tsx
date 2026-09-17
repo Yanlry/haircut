@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { salon, navLinks } from "@/data/salon";
+import { salon, navLinks, RESERVATION_ENABLED } from "@/data/salon";
 
 export function Header() {
   const pathname = usePathname();
@@ -67,19 +67,21 @@ export function Header() {
             <li>
               <a
                 href={salon.phone.href}
-                className="rounded-sm border border-paper/30 px-3 py-2 text-xs tracking-[0.15em] text-paper transition-colors hover:border-barber-red hover:text-barber-red lg:px-4"
+                className="rounded-sm bg-barber-red px-3 py-2 text-xs tracking-[0.15em] text-paper transition-colors hover:bg-barber-red/85 lg:px-4"
               >
                 Appeler
               </a>
             </li>
-            <li>
-              <Link
-                href="/reservation"
-                className="rounded-sm bg-barber-red px-3 py-2 text-xs tracking-[0.15em] text-paper transition-colors hover:bg-barber-red/85 lg:px-4"
-              >
-                Réserver
-              </Link>
-            </li>
+            {RESERVATION_ENABLED && (
+              <li>
+                <Link
+                  href="/reservation"
+                  className="rounded-sm bg-barber-red px-3 py-2 text-xs tracking-[0.15em] text-paper transition-colors hover:bg-barber-red/85 lg:px-4"
+                >
+                  Réserver
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
 
@@ -157,13 +159,15 @@ export function Header() {
               );
             })}
           </ul>
-          <Link
-            href="/reservation"
-            onClick={() => setMenuOpen(false)}
-            className="mt-4 block rounded-sm bg-barber-red px-4 py-3 text-center text-sm tracking-[0.15em] text-paper uppercase"
-          >
-            Réserver
-          </Link>
+          {RESERVATION_ENABLED && (
+            <Link
+              href="/reservation"
+              onClick={() => setMenuOpen(false)}
+              className="mt-4 block rounded-sm bg-barber-red px-4 py-3 text-center text-sm tracking-[0.15em] text-paper uppercase"
+            >
+              Réserver
+            </Link>
+          )}
           <a
             href={salon.phone.href}
             className="mt-3 block rounded-sm border border-paper/40 px-4 py-3 text-center text-sm tracking-[0.15em] text-paper uppercase"

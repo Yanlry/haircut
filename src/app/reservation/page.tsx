@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { BookingForm } from "@/components/booking/BookingForm";
-import { siteUrl } from "@/data/salon";
+import { salon, siteUrl, RESERVATION_ENABLED } from "@/data/salon";
 
 export const metadata: Metadata = {
   title: "Réservation | Haircut Lille",
@@ -37,7 +37,22 @@ export default function ReservationPage() {
 
         <section className="px-4 pb-24 sm:px-6 md:pb-32">
           <div className="mx-auto max-w-3xl">
-            <BookingForm />
+            {RESERVATION_ENABLED ? (
+              <BookingForm />
+            ) : (
+              <div className="border border-white/10 p-8 text-center">
+                <p className="text-lg leading-relaxed text-paper/85">
+                  La réservation en ligne est momentanément indisponible.
+                  Merci de nous appeler directement pour prendre rendez-vous.
+                </p>
+                <a
+                  href={salon.phone.href}
+                  className="mt-6 inline-block rounded-sm bg-barber-red px-8 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:bg-barber-red/85"
+                >
+                  Appeler le salon
+                </a>
+              </div>
+            )}
           </div>
         </section>
       </main>

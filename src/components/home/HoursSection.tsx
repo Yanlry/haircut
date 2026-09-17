@@ -16,10 +16,6 @@ export function HoursSection() {
             Ouvert presque toute la semaine.
           </h2>
           <div className="mt-5 h-[3px] w-16 barber-stripe" />
-          <p className="mt-8 max-w-md text-base leading-relaxed text-paper/72 sm:text-lg">
-            Retrouvez les horaires du salon avant de passer pour une coupe, une
-            barbe ou une formule complète.
-          </p>
           <Link
             href="/horaires"
             className="mt-8 inline-block rounded-sm border border-paper/45 px-7 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"

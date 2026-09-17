@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { PortraitCarousel } from "@/components/home/PortraitCarousel";
 import {
   addressLine,
   clientPhotos,
@@ -93,6 +94,40 @@ export default function SalonPage() {
           </div>
         </section>
 
+
+        <section className="px-4 py-24 sm:px-6 md:py-32">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12">
+              <p className="text-xs tracking-[0.28em] text-barber-red uppercase">
+                Galerie
+              </p>
+              <h2 className="mt-4 font-display text-4xl tracking-wide sm:text-5xl">
+              Coupes & styles
+              </h2>
+              <div className="mt-5 h-[3px] w-16 barber-stripe" />
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {clientPhotos.map((photo) => (
+                <div
+                  key={photo.src}
+                  className="relative aspect-[4/3] overflow-hidden bg-ink-soft"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <PortraitCarousel />
+          </div>
+        </section>
+
         <section className="bg-ink-soft px-4 py-24 sm:px-6 md:py-32">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -134,13 +169,10 @@ export default function SalonPage() {
 
                 <p className="mt-8 text-base leading-relaxed text-paper/78 sm:text-lg">
                   Haircut est un salon de coiffure et de barbier situé au{" "}
-                  {addressLine}. Vous y êtes accueilli pour une coupe homme, un
-                  entretien de barbe, une coupe enfant ou une prestation coupe et
-                  barbe, dans un cadre pensé pour les hommes de tous âges.
+                  {addressLine}. Le salon accueille les hommes de tous âges dans une ambiance chaleureuse et soignée. Chaque coupe est réalisée avec attention, dans le respect de votre style, avec une finition nette et un service efficace.
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-paper/78 sm:text-lg">
-                  Ici, l&apos;ambiance reste directe et chaleureuse : on vient pour
-                  ressortir net, avec une finition propre et un service efficace.
+                Ici, tout est pensé pour vous offrir un moment agréable et un résultat à la hauteur de vos attentes.
                 </p>
               </div>
             </div>
@@ -158,36 +190,6 @@ export default function SalonPage() {
           </div>
         </section>
 
-        <section className="px-4 py-24 sm:px-6 md:py-32">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-12">
-              <p className="text-xs tracking-[0.28em] text-barber-red uppercase">
-                Galerie
-              </p>
-              <h2 className="mt-4 font-display text-4xl tracking-wide sm:text-5xl">
-                Clients, coupes et détails du salon.
-              </h2>
-              <div className="mt-5 h-[3px] w-16 barber-stripe" />
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {clientPhotos.map((photo) => (
-                <div
-                  key={photo.src}
-                  className="relative aspect-[4/3] overflow-hidden bg-ink-soft"
-                >
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
       </main>
       <Footer />

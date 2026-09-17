@@ -42,11 +42,6 @@ export function ContactSection() {
             </div>
           </div>
 
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-paper/72">
-            Pour une coupe, une barbe ou une formule complète, le plus simple
-            est d&apos;appeler le salon avant de passer.
-          </p>
-
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href={salon.phone.href}

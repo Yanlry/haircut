@@ -28,9 +28,8 @@ export default function HorairesPage() {
             </h1>
             <div className="mt-5 h-[3px] w-16 barber-stripe" />
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-paper/74 sm:text-lg">
-              Les horaires du salon Haircut à Lille. Pour confirmer une
-              disponibilité, vous pouvez appeler directement le salon.
-            </p>
+  Appelez directement le salon pour connaître l’affluence ou confirmer une disponibilité.
+</p>
           </div>
         </section>
 

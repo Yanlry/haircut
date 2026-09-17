@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PortraitCarousel } from "@/components/home/PortraitCarousel";
 import { clientPhotos } from "@/data/salon";
 
 export function GallerySection() {
@@ -12,7 +13,7 @@ export function GallerySection() {
               Réalisations
             </p>
             <h2 className="mt-4 font-display text-4xl tracking-wide text-paper sm:text-5xl">
-              Des coupes vues au salon.
+            Coupes & styles
             </h2>
             <div className="mt-5 h-[3px] w-16 barber-stripe" />
           </div>
@@ -41,6 +42,8 @@ export function GallerySection() {
             </div>
           ))}
         </div>
+
+        <PortraitCarousel />
       </div>
     </section>
   );

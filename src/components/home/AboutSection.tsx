@@ -47,13 +47,10 @@ export function AboutSection() {
 
           <p className="mt-8 text-base leading-relaxed text-paper/78 sm:text-lg">
             Haircut est un salon de coiffure et de barbier situé au{" "}
-            {addressLine}. Vous y êtes accueilli pour une coupe homme, un
-            entretien de barbe, une coupe enfant ou une prestation coupe et
-            barbe, dans un cadre pensé pour les hommes de tous âges.
+            {addressLine}. Le salon accueille les hommes de tous âges dans une ambiance chaleureuse et soignée. Chaque coupe est réalisée avec attention, dans le respect de votre style, avec une finition nette et un service efficace.
           </p>
           <p className="mt-6 text-base leading-relaxed text-paper/78 sm:text-lg">
-            Ici, l&apos;ambiance reste directe et chaleureuse : on vient pour
-            ressortir net, avec une finition propre et un service efficace.
+          Ici, tout est pensé pour vous offrir un moment agréable et un résultat à la hauteur de vos attentes.
           </p>
 
           <ul className="mt-8 grid gap-3">

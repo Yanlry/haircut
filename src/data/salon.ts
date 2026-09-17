@@ -4,6 +4,12 @@ const phoneDisplay = "06 52 62 14 06";
 const phoneE164 = "+33652621406";
 const siteImagePath = "/images/salon/salon-exterieur.png";
 
+// L'employé qui gère les réservations est absent pour le moment : le
+// client ne veut pas de demandes de réservation en ligne qui resteraient
+// sans réponse. Les boutons "Réserver" sont masqués (le code du
+// formulaire reste en place). Repasser à true pour les réactiver.
+export const RESERVATION_ENABLED = false;
+
 export const salon = {
   name: "Haircut",
   tagline: "Coiffeur • Barbier à Lille",
@@ -70,14 +76,40 @@ export const clientPhotos = [
     alt: "Client installé pour une coupe dans le salon Haircut",
   },
   {
-    src: assetPath("/images/salon/clients/2cb72a25-647a-4e55-888e-cea22e120a77.png"),
-    alt: "Coupe homme avec dégradé net réalisée chez Haircut Lille",
-  },
-  {
     src: assetPath("/images/salon/clients/f80e0656-144b-4603-9ac1-e2c630e58eff.png"),
     alt: "Finition client après passage au salon Haircut",
   },
 ] as const;
+
+const carouselFileNames = [
+  "IMG_3628.jpg",
+  "IMG_3629.jpg",
+  "IMG_3630.JPG",
+  "IMG_3631.JPG",
+  "IMG_3632.JPG",
+  "IMG_3633.JPG",
+  "IMG_3634.JPG",
+  "IMG_3635.JPG",
+  "IMG_3636.JPG",
+  "IMG_3637.JPG",
+  "IMG_3638.JPG",
+  "IMG_3639.JPG",
+  "IMG_3640.JPG",
+  "IMG_3641.JPG",
+  "IMG_3642.JPG",
+  "IMG_3643.JPG",
+  "IMG_3644.JPG",
+  "IMG_3645.JPG",
+  "IMG_3646.JPG",
+  "IMG_3647.JPG",
+  "IMG_3648.JPG",
+  "IMG_3649.JPG",
+] as const;
+
+export const clientCarouselPhotos = carouselFileNames.map((fileName, index) => ({
+  src: assetPath(`/images/salon/clients/caroussel/${fileName}`),
+  alt: `Réalisation coupe et style au salon Haircut Lille ${index + 1}`,
+}));
 
 export const addressLine = `${salon.address.street}, ${salon.address.postalCode} ${salon.address.city}`;
 

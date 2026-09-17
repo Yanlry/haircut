@@ -17,7 +17,7 @@ export function PricingSection() {
           </h2>
           <div className="mt-5 h-[3px] w-16 barber-stripe" />
           <p className="mt-8 max-w-md text-base leading-relaxed text-paper/72 sm:text-lg">
-            Les prestations essentielles du salon, sans détour : coupe, barbe,
+            Les prestations essentielles de notre salon : coupe, barbe,
             enfant et formule coupe + barbe.
           </p>
           <Link

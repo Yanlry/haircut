@@ -12,9 +12,15 @@ const logoImage = assetPath("/images/HAIRCUT.png");
 const salonVideo = assetPath("/video.mp4");
 const videoPoster = assetPath("/images/salon/salon-exterieur.png");
 
+// Le client ne veut plus de l'écran "Entrer dans le salon" avec le son pour
+// le moment : le site se lance directement sur l'accueil, vidéo muette en
+// lecture automatique. Repasser à true pour réactiver l'écran d'entrée et
+// le bouton son si le client change d'avis.
+const ENTRY_EXPERIENCE_ENABLED = false;
+
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasEntered, setHasEntered] = useState(false);
+  const [hasEntered, setHasEntered] = useState(!ENTRY_EXPERIENCE_ENABLED);
   const [isMuted, setIsMuted] = useState(true);
   const [showTimedImage, setShowTimedImage] = useState(false);
 
@@ -31,8 +37,13 @@ export function HeroVideo() {
     }
 
     video.muted = true;
-    video.pause();
-    video.currentTime = 0;
+
+    if (ENTRY_EXPERIENCE_ENABLED) {
+      video.pause();
+      video.currentTime = 0;
+    } else {
+      void video.play().catch(() => {});
+    }
   }, []);
 
   useEffect(() => {
@@ -150,6 +161,7 @@ export function HeroVideo() {
         src={salonVideo}
         poster={videoPoster}
         muted={isMuted}
+        autoPlay={!ENTRY_EXPERIENCE_ENABLED}
         loop
         playsInline
         preload="metadata"
@@ -158,7 +170,7 @@ export function HeroVideo() {
         onEnded={() => setShowTimedImage(false)}
       />
 
-      {!hasEntered && (
+      {ENTRY_EXPERIENCE_ENABLED && !hasEntered && (
         <div className="fixed inset-0 z-[80] overflow-hidden bg-ink px-6 text-center">
           <div
             aria-hidden="true"
@@ -218,15 +230,17 @@ export function HeroVideo() {
             >
               Appeler
             </a>
-            <button
-              type="button"
-              onClick={toggleSound}
-              aria-label={isMuted ? "Activer le son" : "Couper le son"}
-              title={isMuted ? "Activer le son" : "Couper le son"}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-paper/40 bg-black/35 text-paper backdrop-blur-sm transition-colors hover:border-paper hover:bg-paper hover:text-ink"
-            >
-              {soundIcon}
-            </button>
+            {ENTRY_EXPERIENCE_ENABLED && (
+              <button
+                type="button"
+                onClick={toggleSound}
+                aria-label={isMuted ? "Activer le son" : "Couper le son"}
+                title={isMuted ? "Activer le son" : "Couper le son"}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-paper/40 bg-black/35 text-paper backdrop-blur-sm transition-colors hover:border-paper hover:bg-paper hover:text-ink"
+              >
+                {soundIcon}
+              </button>
+            )}
           </div>
         </div>
       </div>
