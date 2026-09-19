@@ -19,7 +19,7 @@ export default function TarifsPage() {
       <Header />
       <main className="bg-ink text-paper">
         <section className="px-4 pb-20 pt-32 sm:px-6 md:pb-28 md:pt-40">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
               <p className="text-xs tracking-[0.28em] text-barber-red uppercase">
                 Tarifs
