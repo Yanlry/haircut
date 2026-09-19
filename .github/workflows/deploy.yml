@@ -18,8 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: /haircut
-      NEXT_PUBLIC_SITE_URL: https://yanlry.github.io/haircut
+      NEXT_PUBLIC_BASE_PATH: /
+      NEXT_PUBLIC_SITE_URL: https://haircutbarbier.com
     steps:
       - name: Checkout
         uses: actions/checkout@v4
