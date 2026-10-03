@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { salon, addressLine } from "@/data/salon";
 import { assetPath } from "@/lib/site-paths";
 
@@ -23,6 +23,20 @@ export function HeroVideo() {
   const [hasEntered, setHasEntered] = useState(!ENTRY_EXPERIENCE_ENABLED);
   const [isMuted, setIsMuted] = useState(true);
   const [showTimedImage, setShowTimedImage] = useState(false);
+  // Garder le poster visible jusqu'au démarrage, sans bouton Play natif iOS.
+  const [autoplayBlocked, setAutoplayBlocked] = useState(true);
+
+  const tryPlayVideo = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+
+    void video
+      .play()
+      .then(() => setAutoplayBlocked(false))
+      .catch(() => setAutoplayBlocked(true));
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -42,9 +56,9 @@ export function HeroVideo() {
       video.pause();
       video.currentTime = 0;
     } else {
-      void video.play().catch(() => {});
+      void tryPlayVideo();
     }
-  }, []);
+  }, [tryPlayVideo]);
 
   useEffect(() => {
     if (hasEntered) return;
@@ -153,11 +167,13 @@ export function HeroVideo() {
   return (
     <section
       id="accueil"
-      className="relative h-[100svh] w-full overflow-hidden bg-ink"
+      className="relative h-[100svh] w-full overflow-hidden bg-ink bg-cover bg-center"
+      style={{ backgroundImage: `url('${videoPoster}')` }}
     >
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover [&::-webkit-media-controls]:hidden! [&::-webkit-media-controls-start-playback-button]:hidden!"
+        style={{ opacity: autoplayBlocked ? 0 : 1 }}
         src={salonVideo}
         poster={videoPoster}
         muted={isMuted}
@@ -166,6 +182,15 @@ export function HeroVideo() {
         playsInline
         preload="metadata"
         aria-hidden="true"
+        onCanPlay={() => {
+          if (
+            !ENTRY_EXPERIENCE_ENABLED &&
+            !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ) {
+            void tryPlayVideo();
+          }
+        }}
+        onPlaying={() => setAutoplayBlocked(false)}
         onTimeUpdate={updateTimedImage}
         onEnded={() => setShowTimedImage(false)}
       />
@@ -194,6 +219,15 @@ export function HeroVideo() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/25 to-black/70" />
 
+      {autoplayBlocked && (
+        <button
+          type="button"
+          onClick={tryPlayVideo}
+          aria-label="Lancer la vidéo"
+          className="absolute inset-0 z-10 bg-transparent"
+        />
+      )}
+
       {showTimedImage && (
         <div className="pointer-events-none absolute inset-0 z-10 flex -translate-y-24 items-center justify-center px-6">
           <Image
@@ -207,7 +241,7 @@ export function HeroVideo() {
         </div>
       )}
 
-<div className="relative z-10 flex h-full translate-y-40 flex-col items-center justify-center px-6 text-center md:translate-y-70">
+<div className="pointer-events-none relative z-10 flex h-full translate-y-40 flex-col items-center justify-center px-6 text-center md:translate-y-70">
         <p className="text-sm tracking-[0.3em] text-paper/90 uppercase sm:text-base">
           {salon.tagline}
         </p>
@@ -216,7 +250,7 @@ export function HeroVideo() {
           {addressLine}
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+        <div className="pointer-events-auto mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <Link
             href="/tarifs"
             className="rounded-sm border border-paper/50 px-8 py-3 text-sm tracking-[0.15em] text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
@@ -247,7 +281,7 @@ export function HeroVideo() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-6 z-10 flex justify-center motion-reduce:hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex justify-center motion-reduce:hidden"
       >
         <svg
           width="20"
