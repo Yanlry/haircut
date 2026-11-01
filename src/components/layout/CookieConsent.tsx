@@ -1,24 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 const CONSENT_KEY = "haircut-cookie-consent";
 
-export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+function subscribeToStorage(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+}
 
-  useEffect(() => {
-    const stored = window.localStorage.getItem(CONSENT_KEY);
-    if (!stored) setVisible(true);
-  }, []);
+export function CookieConsent() {
+  // Côté serveur on considère le choix déjà fait pour ne rien rendre : le
+  // bandeau n'apparaît qu'après hydratation, si rien n'est enregistré.
+  const hasStoredChoice = useSyncExternalStore(
+    subscribeToStorage,
+    () => window.localStorage.getItem(CONSENT_KEY) !== null,
+    () => true
+  );
+  const [dismissed, setDismissed] = useState(false);
 
   function choose(value: "accepted" | "declined") {
     window.localStorage.setItem(CONSENT_KEY, value);
-    setVisible(false);
+    setDismissed(true);
   }
 
-  if (!visible) return null;
+  if (hasStoredChoice || dismissed) return null;
 
   return (
     <div

@@ -10,7 +10,9 @@ const TIMED_IMAGE_START_SECONDS = 16.2;
 const entryImage = assetPath("/images/entrer-sur-site.png");
 const logoImage = assetPath("/images/HAIRCUT.png");
 const salonVideo = assetPath("/video.mp4");
-const videoPoster = assetPath("/images/salon/salon-exterieur.png");
+// Image de fond affichée tant que la vidéo n'a pas réellement démarré :
+// mode économie d'énergie, autoplay bloqué, réseau lent, erreur de lecture…
+const videoPoster = assetPath("/fond.jpg");
 
 // Le client ne veut plus de l'écran "Entrer dans le salon" avec le son pour
 // le moment : le site se lance directement sur l'accueil, vidéo muette en
@@ -191,6 +193,7 @@ export function HeroVideo() {
           }
         }}
         onPlaying={() => setAutoplayBlocked(false)}
+        onError={() => setAutoplayBlocked(true)}
         onTimeUpdate={updateTimedImage}
         onEnded={() => setShowTimedImage(false)}
       />
