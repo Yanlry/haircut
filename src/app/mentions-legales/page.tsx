@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { addressLine, salon, siteUrl } from "@/data/salon";
+import { addressLine, legalEntity, salon, siteUrl } from "@/data/salon";
 
 export const metadata: Metadata = {
   title: "Mentions légales | Haircut Lille",
@@ -54,20 +54,24 @@ export default function MentionsLegalesPage() {
               </h2>
               <div className="mt-4 h-[2px] w-10 barber-stripe" />
               <p className="mt-5">
-                Le présent site est édité par : <ToComplete>nom et prénom de l&apos;exploitant, ou dénomination sociale si le salon est exploité en société</ToComplete>.
+                Le présent site est édité par la société {legalEntity.name},
+                société par actions simplifiée ({legalEntity.shortLegalForm})
+                au capital social de {legalEntity.capital}.
               </p>
               <ul className="mt-4 grid gap-2">
+                <li>Dénomination sociale : {legalEntity.name}</li>
+                <li>Forme juridique : {legalEntity.legalForm}</li>
+                <li>Numéro SIREN : {legalEntity.siren}</li>
+                <li>Numéro SIRET : {legalEntity.siret}</li>
                 <li>
-                  Forme juridique : <ToComplete>ex. entreprise individuelle, auto-entrepreneur, EURL, SASU…</ToComplete>
+                  Immatriculation : {legalEntity.rcs}, n° {legalEntity.siren}
                 </li>
                 <li>
-                  Numéro SIREN / SIRET : <ToComplete>à compléter</ToComplete>
+                  Numéro de TVA intracommunautaire : {legalEntity.vatNumber}
                 </li>
                 <li>
-                  Numéro de TVA intracommunautaire (le cas échéant) : <ToComplete>à compléter</ToComplete>
-                </li>
-                <li>
-                  Siège / adresse d&apos;exploitation : {addressLine}
+                  Siège social et adresse d&apos;exploitation : {addressLine},{" "}
+                  {salon.address.country}
                 </li>
                 <li>
                   Téléphone :{" "}
@@ -76,10 +80,11 @@ export default function MentionsLegalesPage() {
                   </a>
                 </li>
                 <li>
-                  Adresse email de contact : <ToComplete>à compléter</ToComplete>
+                  Adresse e-mail de contact : <ToComplete>à compléter</ToComplete>
                 </li>
+                <li>Président : {legalEntity.president}</li>
                 <li>
-                  Directeur de la publication : <ToComplete>nom du responsable du salon</ToComplete>
+                  Directeur de la publication : {legalEntity.publicationDirector}
                 </li>
               </ul>
             </div>
@@ -118,8 +123,9 @@ export default function MentionsLegalesPage() {
               <p className="mt-5">
                 L&apos;ensemble des éléments présents sur ce site (textes,
                 photographies, logo, charte graphique) est protégé au titre
-                du droit d&apos;auteur et reste la propriété exclusive du
-                salon {salon.name} ou de ses concédants. Toute reproduction,
+                du droit d&apos;auteur et reste la propriété exclusive de la
+                société {legalEntity.name}, exploitant le salon {salon.name},
+                ou de ses concédants. Toute reproduction,
                 représentation, modification ou adaptation, totale ou
                 partielle, sans autorisation préalable écrite, est
                 interdite.

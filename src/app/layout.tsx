@@ -6,6 +6,7 @@ import {
   siteUrl,
   priceRange,
   siteImageUrl,
+  legalEntity,
 } from "@/data/salon";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import "./globals.css";
@@ -69,6 +70,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   name: salon.name,
+  legalName: legalEntity.name,
+  vatID: legalEntity.vatNumber,
   image: siteImageUrl,
   telephone: salon.phone.e164,
   priceRange,

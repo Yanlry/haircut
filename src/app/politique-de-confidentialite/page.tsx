@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { addressLine, salon, siteUrl } from "@/data/salon";
+import { addressLine, legalEntity, salon, siteUrl } from "@/data/salon";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité | Haircut Lille",
@@ -56,8 +56,10 @@ export default function PolitiqueConfidentialitePage() {
               <div className="mt-4 h-[2px] w-10 barber-stripe" />
               <p className="mt-5">
                 Le responsable du traitement des données collectées sur ce
-                site est <ToComplete>nom / dénomination sociale de l&apos;exploitant du salon</ToComplete>
-                , exploitant le salon {salon.name}, {addressLine}.
+                site est la société {legalEntity.name} (
+                {legalEntity.shortLegalForm}, {legalEntity.rcs} n°{" "}
+                {legalEntity.siren}), exploitant le salon {salon.name},{" "}
+                {addressLine}.
               </p>
               <p className="mt-4">
                 Pour toute question relative à vos données personnelles,

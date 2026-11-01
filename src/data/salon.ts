@@ -41,6 +41,19 @@ export const salon = {
   ],
 } as const;
 
+export const legalEntity = {
+  name: "HAIR-CUT",
+  legalForm: "Société par actions simplifiée (SAS)",
+  shortLegalForm: "SAS",
+  capital: "500 €",
+  siren: "879 654 390",
+  siret: "879 654 390 00019",
+  rcs: "RCS Lille Métropole",
+  vatNumber: "FR00879654390",
+  president: "Monsieur Rezki FARSI",
+  publicationDirector: "Monsieur Rezki FARSI",
+} as const;
+
 export const salonHighlights = [
   "Coupes hommes cheveux court ou long",
   "Barbe, contours et entretien au rasoir",
